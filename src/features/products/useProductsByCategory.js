@@ -6,26 +6,20 @@ function useProductsByCategory() {
   const { idCategory } = useParams();
   const [searchParams] = useSearchParams();
 
-  // paginação
-  const page = searchParams.get("page") || 1;
-
   // preço minimo
   const priceMin = searchParams.get("priceMin") || null;
 
   // preço máximo
   const priceMax = searchParams.get("priceMax") || null;
 
-  // título
-  const title = searchParams.get("title") || null;
-
-  const { data, isPending, error } = useQuery({
-    queryKey: ["products", idCategory, page, priceMin, priceMax, title],
-    queryFn: () =>
-      getProductsByCategory(idCategory, page, priceMin, priceMax, title),
-    refetchInterval: 5000, // 5 segundos de intervalo para refetch
+  const { data, isPending } = useQuery({
+    // toda vez que os valores de idCategory, priceMin ou priceMax mudarem, a query é re-execut
+    queryKey: ["products", idCategory, priceMin, priceMax],
+    queryFn: () => getProductsByCategory(idCategory, priceMin, priceMax),
+    refetchInterval: 5000,
   });
 
-  return { data, isPending, error };
+  return { data, isPending, idCategory };
 }
 
 export default useProductsByCategory;

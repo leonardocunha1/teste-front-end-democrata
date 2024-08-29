@@ -1,4 +1,3 @@
-// BlogCard.js
 function BlogCard({ image, title }) {
   return (
     <div

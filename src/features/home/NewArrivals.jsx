@@ -3,15 +3,20 @@ import { PuffLoader } from "react-spinners";
 
 import useProducts from "@/features/home/useProducts";
 import NewArrivalsItem from "@/features/home/NewArrivalsItem";
+import useCleanImgUrl from "@/hooks/useCleanImgUrl";
 
 function NewArrivals() {
   const { products = [], isPending } = useProducts();
+  // state para controlar a exibição dos produtos
   const [showMore, setShowMore] = useState(false);
 
-  const visibleProducts = showMore
-    ? products.slice(0, 6)
-    : products.slice(0, 3);
+  // usando o hook useCleanImgUrl para limpar as urls das imagens dos produtos
+  const arr = useCleanImgUrl(products);
 
+  // pegando os 3 ou 6 primeiros produtos para exibir
+  const visibleProducts = showMore ? arr.slice(0, 6) : arr.slice(0, 3);
+
+  // função para alternar a exibição dos produtos
   function toggleShowMore() {
     setShowMore((prevShowMore) => !prevShowMore);
   }

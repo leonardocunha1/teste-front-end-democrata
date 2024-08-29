@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/utils/helpers";
+import { formatCurrency } from "@/lib/helpers";
 
 function NewArrivalsItem({ product }) {
   return (

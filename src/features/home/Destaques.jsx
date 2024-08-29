@@ -1,12 +1,14 @@
+import { PuffLoader } from "react-spinners";
 import useCategories from "./useCategories";
 
 function Categorias() {
   const { categories = [], isPending } = useCategories();
 
+  // pegando as 3 primeiras categorias
   const tresCategorias = categories.slice(0, 3);
 
   if (isPending) {
-    return <p>Carregando...</p>;
+    return <PuffLoader color="#000" size={60} />;
   }
 
   return (

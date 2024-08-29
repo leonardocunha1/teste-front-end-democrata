@@ -1,60 +1,51 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
-import useProductsByCategory from "@/features/home/useProductsByCategory";
-import Paginate from "@/features/products/Paginate";
+
+import useCleanImgUrl from "@/hooks/useCleanImgUrl";
+import useProductsByCategory from "@/features/products/useProductsByCategory";
+
+import Paginate from "@/ui/Paginate";
 import ProductItem from "@/features/products/ProductItem";
 import ProductsOperations from "@/features/products/ProductsOperations";
-
-const ITEMS_PER_PAGE = 5;
+import TextMd from "@/ui/TextMd";
+import usePagination from "@/hooks/usePagination";
 
 function Product() {
-  const [page, setPage] = useState(1);
-
-  const { data = [], isPending } = useProductsByCategory(); // Garantir que data é um array
-  const { idCategory } = useParams();
-
-  useEffect(() => {
-    setPage(1);
-  }, [idCategory]);
-
-  if (isPending) {
-    return (
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-stone-100">
-        <PuffLoader color="#000" size={60} />
-      </div>
-    );
-  }
-
-  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
-  const paginatedData = data.slice(
-    (page - 1) * ITEMS_PER_PAGE,
-    page * ITEMS_PER_PAGE,
-  );
+  const { data = [], isPending, idCategory } = useProductsByCategory();
+  const arr = useCleanImgUrl(data);
+  const { paginatedData, totalPages } = usePagination(arr);
 
   return (
-    <section className="flex flex-1 flex-col">
-      <h3 className="mb-4 text-center text-2xl font-bold md:text-4xl">
-        {idCategory == 1 && "Seção Roupas"}
-        {idCategory == 2 && "Seção Eletrônicos"}
-        {idCategory == 3 && "Seção Diversos"}
-      </h3>
-      <div className="mx-auto max-w-5xl flex-1">
-        <div className="flex justify-end pb-5">
-          <ProductsOperations />
-        </div>
-        <ul className="grid grid-cols-1 place-items-center gap-4 sm:grid-cols-2 sm:gap-20 lg:grid-cols-3">
-          {paginatedData.map((product) => (
-            <ProductItem key={product.id} product={product} />
-          ))}
-        </ul>
+    <section className="flex flex-1 flex-col pb-6">
+      <TextMd
+        label={`${idCategory == 1 ? "Seção Roupas" : ""}
+        ${idCategory == 2 ? "Seção Eletrônicos" : ""}
+        ${idCategory == 3 ? "Seção Diversos" : ""}`}
+      />
+
+      <div className="mx-auto flex w-full max-w-5xl justify-end px-5 pb-5">
+        <ProductsOperations idCategory={idCategory} />
       </div>
 
-      <Paginate
-        page={page}
-        totalPages={totalPages}
-        onPageChange={(newPage) => setPage(newPage)}
-      />
+      {isPending ? (
+        <div className="flex h-64 items-center justify-center">
+          <PuffLoader color="#000" size={60} />
+        </div>
+      ) : arr.length > 0 ? (
+        <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-5">
+          <ul
+            className={`grid flex-1 grid-cols-1 place-content-start place-items-center gap-y-5 xl:place-items-start ${data.length > 1 ? "sm:grid-cols-2 lg:grid-cols-3" : ""}`}
+          >
+            {paginatedData.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </ul>
+          {totalPages > 1 && <Paginate totalPages={totalPages} />}
+        </div>
+      ) : (
+        <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+          Nenhum produto encontrado
+        </h3>
+      )}
     </section>
   );
 }

@@ -11,6 +11,7 @@ const menuItems = [
   { title: "Roupas", url: "/product/1" },
   { title: "Eletrônicos", url: "/product/2" },
   { title: "Diversos", url: "/product/3" },
+  { title: "Admin", url: "/admin" },
   { title: <FaCartPlus className="h-6 w-6" />, url: "/cart" },
 ];
 
@@ -19,7 +20,7 @@ function Menu() {
 
   return (
     <>
-      <nav className="relative z-30 mx-auto flex w-full max-w-5xl justify-between px-10 py-10 text-base sm:px-0">
+      <nav className="relative z-30 mx-auto flex w-full max-w-5xl justify-between px-10 py-10 text-base">
         <Link
           className="text-2xl font-bold uppercase tracking-[0.2em]"
           to="/home"

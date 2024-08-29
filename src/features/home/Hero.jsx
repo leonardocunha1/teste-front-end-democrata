@@ -12,7 +12,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/ui/carousel";
 
 import HeroImg from "@/features/home/HeroImg";
 
