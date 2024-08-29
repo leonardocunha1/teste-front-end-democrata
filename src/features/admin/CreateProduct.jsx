@@ -7,7 +7,7 @@ function CreateProduct() {
   const { createProduct, isCreating } = useCreateProduct();
 
   return (
-    <div className="mx-auto max-w-5xl">
+    <div className="mx-auto mt-7 flex max-w-5xl justify-center sm:justify-start">
       <Modal>
         <Modal.Open opens="createProduct">
           <ButtonStyled>Criar Produto</ButtonStyled>
