@@ -1,8 +1,6 @@
-# React + Vite
+# Teste Front-End React Democrata 👞
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Link do projeto hospedado](https://teste-frondend-democrata.netlify.app/home)
 
-Currently, two official plugins are available:
+Para instalar o projeto localmente é necessário fazer um clone ou download do projeto e, após isso, rodar o comando npm install para instalar o node_modules. Posteriormente, para iniciar o projeto colocar npm run dev no terminal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
