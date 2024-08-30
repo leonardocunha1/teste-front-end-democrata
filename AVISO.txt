@@ -1,0 +1,3 @@
+Eu fiz a busca/get de produtos pela categoria como esstá constando na documentação da API:
+[GET] https://api.escuelajs.co/api/v1/categories/{idcategoria}.
+Peguei os produtos das categorias com o id 1, 2 e 3 para realizar esse projeto. Porém, como é possível alterar/deletar informações, o ID dessas categorias estão sempre mudando e, com isso, fica difícil pegar os produtos pela categoria. Uma possível solução para isso seria fazer um getALL nos produtos e usar o método filter para filtrar a categoria desejada, mas acredito que o código perderia qualidade e desempenho, uma vez que a API já fornece essa opção de filtrar os produtos pela rota. Por isso, resolvi não utilizar o getAll.
