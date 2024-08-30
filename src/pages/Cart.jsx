@@ -24,7 +24,7 @@ function Cart() {
   }
 
   return (
-    <section className="mx-auto w-full max-w-4xl px-5">
+    <section className="mx-auto w-full max-w-4xl flex-1 px-5">
       <TextMd label="Carrinho 🛒" />
       {cart.length > 0 ? (
         <>
