@@ -12,9 +12,8 @@ function Categorias() {
   }
 
   return (
-    <section className="mx-auto max-w-5xl p-5">
-      {/* <TextMd label="Categorias" /> */}
-      <ul className="flex items-center justify-around gap-5 sm:flex-row sm:justify-between sm:gap-10">
+    <section className="mx-auto p-5">
+      <ul className="flex gap-5 sm:flex-row sm:gap-10">
         {tresCategorias.map((category) => (
           <li className="relative" key={category.id}>
             <img

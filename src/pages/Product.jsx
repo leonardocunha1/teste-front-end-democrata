@@ -15,14 +15,14 @@ function Product() {
   const { paginatedData, totalPages } = usePagination(arr);
 
   return (
-    <section className="flex flex-1 flex-col pb-6">
+    <section className="mx-auto flex w-full max-w-5xl flex-1 flex-col pb-6">
       <TextMd
         label={`${idCategory == 1 ? "Seção Roupas" : ""}
         ${idCategory == 2 ? "Seção Eletrônicos" : ""}
         ${idCategory == 3 ? "Seção Diversos" : ""}`}
       />
 
-      <div className="mx-auto flex w-full max-w-5xl justify-end px-5 pb-5">
+      <div className="flex justify-end px-5 pb-5">
         <ProductsOperations idCategory={idCategory} />
       </div>
 
@@ -31,7 +31,7 @@ function Product() {
           <PuffLoader color="#000" size={60} />
         </div>
       ) : arr.length > 0 ? (
-        <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-5">
+        <>
           <ul
             className={`grid flex-1 grid-cols-1 place-content-start place-items-center gap-y-5 xl:place-items-start ${data.length > 1 ? "sm:grid-cols-2 lg:grid-cols-3" : ""}`}
           >
@@ -40,7 +40,7 @@ function Product() {
             ))}
           </ul>
           {totalPages > 1 && <Paginate totalPages={totalPages} />}
-        </div>
+        </>
       ) : (
         <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
           Nenhum produto encontrado

@@ -21,10 +21,7 @@ function Menu() {
   return (
     <>
       <nav className="relative z-30 mx-auto flex w-full max-w-5xl justify-between px-10 py-10 text-base">
-        <Link
-          className="text-2xl font-bold uppercase tracking-[0.2em]"
-          to="/home"
-        >
+        <Link to="/home">
           <img src="/logo.png" alt="Logo site" className="h-10 w-10" />
         </Link>
         <ul

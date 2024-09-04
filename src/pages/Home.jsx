@@ -11,11 +11,10 @@ function Home() {
       <Hero />
       <Infos />
       <NewArrivals />
-      <section className="mx-auto flex max-w-5xl flex-col justify-between gap-1 px-5 py-10 sm:flex-row">
+      <section className="mx-auto flex max-w-5xl flex-col gap-1 px-5 py-10 sm:flex-row">
         <OurStory />
         <OurBlog />
       </section>
-
       <Destaques />
     </>
   );

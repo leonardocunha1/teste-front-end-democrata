@@ -1,10 +1,10 @@
 function OurStory() {
   return (
-    <div className="flex flex-1 flex-col justify-center bg-[url('/homeimg/bg-our-story.jpg')] bg-cover bg-center bg-no-repeat p-8 text-stone-600">
-      <h3 className="mb-1 text-center text-3xl italic tracking-wide text-stone-800">
+    <div className="flex flex-1 flex-col items-center justify-center bg-[url('/homeimg/bg-our-story.jpg')] bg-cover bg-center bg-no-repeat p-8 text-stone-600">
+      <h3 className="mb-1 text-3xl italic tracking-wide text-stone-800">
         História
       </h3>
-      <div className="mx-auto mb-4 h-1 w-20 bg-stone-800"></div>
+      <div className="mb-4 h-1 w-20 bg-stone-800"></div>
 
       <div className="space-y-4 text-justify">
         <p>

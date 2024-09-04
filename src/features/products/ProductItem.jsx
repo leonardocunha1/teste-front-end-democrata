@@ -41,12 +41,12 @@ function ProductItem({ product }) {
         alt={product.title}
         className="h-44 w-44 rounded-t-lg object-cover object-center sm:h-60 sm:w-full"
       />
-      <div className="h-full p-4 text-center">
+      <div className="p-4 text-center">
         <p className="font-semibold">{product.title}</p>
         <p className="mt-1 text-gray-600">{formatCurrency(product.price)}</p>
       </div>
       {cartItem ? (
-        <div className="flex items-center justify-center gap-2">
+        <div className="mt-auto flex items-center justify-center gap-2">
           <ButtonStyled
             size="small"
             variation="primary"
@@ -67,7 +67,7 @@ function ProductItem({ product }) {
         </div>
       ) : (
         <button
-          className="mx-auto flex items-center gap-2 rounded-lg bg-stone-900 px-4 py-1 text-stone-100 duration-200 hover:bg-stone-700"
+          className="mx-auto mt-auto flex items-center gap-2 rounded-lg bg-stone-900 px-4 py-1 text-stone-100 duration-200 hover:bg-stone-700"
           onClick={handleAddToCart}
         >
           <FaCartArrowDown />
