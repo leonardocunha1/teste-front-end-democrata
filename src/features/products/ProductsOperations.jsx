@@ -36,18 +36,16 @@ function ProductsOperations({ idCategory }) {
   }
 
   return (
-    <div className="flex flex-col items-center gap-4 sm:flex-row">
-      <Select value={selectedValue} onValueChange={handleFilterByValue}>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Filtrar por valor" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="1-30">Valor R$1 - R$30</SelectItem>
-          <SelectItem value="30+">Valor acima R$30</SelectItem>
-          <SelectItem value="anyValue">Qualquer valor</SelectItem>
-        </SelectContent>
-      </Select>
-    </div>
+    <Select value={selectedValue} onValueChange={handleFilterByValue}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Filtrar por valor" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="1-30">Valor R$1 - R$30</SelectItem>
+        <SelectItem value="30+">Valor acima R$30</SelectItem>
+        <SelectItem value="anyValue">Qualquer valor</SelectItem>
+      </SelectContent>
+    </Select>
   );
 }
 

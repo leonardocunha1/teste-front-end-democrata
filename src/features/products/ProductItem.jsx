@@ -35,7 +35,7 @@ function ProductItem({ product }) {
   }
 
   return (
-    <li className="flex h-full w-44 flex-col rounded-lg border bg-stone-100 pb-4 shadow-md sm:w-64">
+    <li className="flex h-full w-44 flex-col items-center rounded-lg border bg-stone-100 pb-4 shadow-md sm:w-64">
       <img
         src={product.images[0]}
         alt={product.title}
@@ -67,7 +67,7 @@ function ProductItem({ product }) {
         </div>
       ) : (
         <button
-          className="mx-auto mt-auto flex items-center gap-2 rounded-lg bg-stone-900 px-4 py-1 text-stone-100 duration-200 hover:bg-stone-700"
+          className="mt-auto flex items-center gap-2 rounded-lg bg-stone-900 px-4 py-1 text-stone-100 duration-200 hover:bg-stone-700"
           onClick={handleAddToCart}
         >
           <FaCartArrowDown />
